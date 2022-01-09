@@ -8,6 +8,18 @@
     android:padding="15dp"
     tools:context=".MenuActivity">
 
+    <TextView
+        android:id="@+id/tv1213"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Food Database"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header_title"
         android:layout_width="match_parent"
@@ -15,7 +27,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/tv1213">
 
         <ImageView
             android:id="@+id/imageView"
@@ -49,199 +61,197 @@
             app:layout_constraintTop_toBottomOf="@+id/textView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/menu1"
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:layout_marginTop="70dp"
-        android:background="@drawable/bg_color_menu"
-        android:foregroundGravity="center"
-        android:orientation="vertical"
-        android:padding="3dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_title">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/menu1"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:background="@drawable/bg_color_menu"
+                android:foregroundGravity="center"
+                android:orientation="vertical"
+                android:padding="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/header_title">
 
-        <ImageView
-            android:id="@+id/iv1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="20dp"
-            android:src="@drawable/bg_transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/iv1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/bg_transparent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:text="Burger List"
-            android:textColor="#6D5B45"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintStart_toEndOf="@+id/iv1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth="match_parent" />
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:text="Burger List"
+                    android:textColor="#6D5B45"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/iv1"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="200dp"
-            android:layout_height="2dp"
-            android:layout_marginStart="20dp"
-            android:background="@color/black"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv1"
-            app:layout_constraintTop_toBottomOf="@id/textView2" />
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="2dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@color/black"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv1"
+                    app:layout_constraintTop_toBottomOf="@id/textView2" />
 
-        <TextView
-            android:id="@+id/tvdes"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:text="Check all available \nburger menu on our app"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv1"
-            app:layout_constraintTop_toBottomOf="@id/textView2"
-            app:layout_constraintWidth="match_parent"
-            tools:ignore="HardcodedText" />
+                <TextView
+                    android:id="@+id/tvdes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constrainedWidth="true"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:text="Check all available \nburger menu on our app"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv1"
+                    app:layout_constraintTop_toBottomOf="@id/textView2"
+                    tools:ignore="HardcodedText" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/menu2"
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:layout_marginTop="70dp"
-        android:background="@drawable/bg_color_menu"
-        android:foregroundGravity="center"
-        android:padding="3dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu1">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/menu2"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/bg_color_menu"
+                android:foregroundGravity="center"
+                android:padding="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/menu1">
 
-        <ImageView
-            android:id="@+id/iv2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="20dp"
-            android:src="@drawable/bg_transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/iv2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/pizza_icon_22"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:text="Menu Untuk Tabel 2"
-            android:textColor="#6D5B45"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/iv2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth="match_parent" />
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Pizza List"
+                    android:textColor="#6D5B45"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/iv2"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="200dp"
-            android:layout_height="2dp"
-            android:layout_marginStart="20dp"
-            android:background="@color/black"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv2"
-            app:layout_constraintTop_toBottomOf="@id/textView4" />
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="2dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@color/black"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv2"
+                    app:layout_constraintTop_toBottomOf="@id/textView4" />
 
-        <TextView
-            android:id="@+id/tvdes2"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:text="Check all available \nburger menu on our app"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv2"
-            app:layout_constraintTop_toBottomOf="@id/textView4"
-            app:layout_constraintWidth="match_parent"
-            tools:ignore="HardcodedText" />
+                <TextView
+                    android:id="@+id/tvdes2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:text="Check all available \nPizza menu on our app"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv2"
+                    app:layout_constraintTop_toBottomOf="@id/textView4"
+                    tools:ignore="HardcodedText" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/menu3"
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:layout_marginTop="70dp"
-        android:background="@drawable/bg_color_menu"
-        android:foregroundGravity="center"
-        android:padding="3dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu2">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/menu3"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/bg_color_menu"
+                android:foregroundGravity="center"
+                android:padding="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/menu2">
 
-        <ImageView
-            android:id="@+id/iv3"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="20dp"
-            android:src="@drawable/bg_transparent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/iv3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/snack"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:text="Menu Untuk Tabel 3"
-            android:textColor="#6D5B45"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintStart_toEndOf="@+id/iv3"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth="match_parent" />
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:text="Snack List"
+                    android:textColor="#6D5B45"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/iv3"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="200dp"
-            android:layout_height="2dp"
-            android:layout_marginStart="20dp"
-            android:background="@color/black"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv3"
-            app:layout_constraintTop_toBottomOf="@id/textView12" />
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="2dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@color/black"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv3"
+                    app:layout_constraintTop_toBottomOf="@id/textView12" />
 
-        <TextView
-            android:id="@+id/tvdes3"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:text="Check all available \nburger menu on our app"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv3"
-            app:layout_constraintTop_toBottomOf="@id/textView12"
-            app:layout_constraintWidth="match_parent"
-            tools:ignore="HardcodedText" />
+                <TextView
+                    android:id="@+id/tvdes3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:text="Check all available \nSnack menu on our app"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintStart_toEndOf="@id/iv3"
+                    app:layout_constraintTop_toBottomOf="@id/textView12"
+                    tools:ignore="HardcodedText" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
