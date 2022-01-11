@@ -28,7 +28,6 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constrainedWidth="true"
-        app:layout_constraintEnd_toStartOf="@+id/constraintLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,7 +51,6 @@
         android:text="harga"
         android:textSize="23sp"
         app:layout_constrainedWidth="true"
-        app:layout_constraintEnd_toStartOf="@+id/constraintLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvNamaBurger" />
 
@@ -60,43 +58,42 @@
         android:id="@+id/tvDeskripsiBurger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/din_pro"
         android:text="Deskripsi"
         android:textSize="18sp"
         app:layout_constrainedWidth="true"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/constraintLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvHargaBurger" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="80dp"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:id="@+id/constraintLayout"-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
 
-        <ImageView
-            android:id="@+id/ivDelete"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:src="@drawable/trash_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivEdit" />
+<!--        <ImageView-->
+<!--            android:id="@+id/ivDelete"-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:src="@drawable/trash_24"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/ivEdit" />-->
 
-        <ImageView
-            android:id="@+id/ivEdit"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
-            android:src="@drawable/edit_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--        <ImageView-->
+<!--            android:id="@+id/ivEdit"-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:src="@drawable/edit_24"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

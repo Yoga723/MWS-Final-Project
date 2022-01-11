@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mwsfinalproject.R
@@ -23,7 +24,7 @@ class ListBurger : AppCompatActivity() {
 
     private fun getBurgerData() {
 
-        val listData = ArrayList<BurgerModel>() /* listData yaitu list array dari StudentModel*/
+        val listData = ArrayList<BurgerModel>()
 
         val rvStudentData: RecyclerView = findViewById(R.id.rvBurger)
         rvStudentData.setHasFixedSize(true) /* RecyclerView sudah memiliki ukuran yang fix */
@@ -32,7 +33,7 @@ class ListBurger : AppCompatActivity() {
         val APIClient =
             APIClient.create()          /* variabel menghubungi object APIClient dan mengambil fungsi create() */
         val callData =
-            APIClient.getBurgers()      /* callData pergi ke object APIClient dan kemudian ke APIInterface dan mengambil fungsi getStudents() */
+            APIClient.getBurgers()
 
         callData.enqueue(object : Callback<ArrayList<BurgerModel>> {
             override fun onResponse(
@@ -47,6 +48,10 @@ class ListBurger : AppCompatActivity() {
                 val adapterData = AdapterBurger(listData)
 
                 rvStudentData.adapter = adapterData
+
+                rvStudentData.setOnClickListener{
+                    Toast.makeText(this@ListBurger, "hello dasda", Toast.LENGTH_SHORT).show()
+                }
             }
 
             override fun onFailure(call: Call<ArrayList<BurgerModel>>, t: Throwable) {
