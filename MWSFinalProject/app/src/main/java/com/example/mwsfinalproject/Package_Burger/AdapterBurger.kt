@@ -30,12 +30,6 @@ class AdapterBurger(private val datalist: ArrayList<BurgerModel>) :
         //        val ivEdit = itemView.findViewById<ImageView>(R.id.ivEdit)
 //        val ivDelete = itemView.findViewById<ImageView>(R.id.ivDelete)
         val context = itemView.context
-
-//        init {
-//            itemView.setOnClickListener {
-//                onItemClick?.invoke(datalist[adapterPosition])
-//            }
-//        }
     }
 
     override fun onCreateViewHolder(
@@ -104,13 +98,11 @@ class AdapterBurger(private val datalist: ArrayList<BurgerModel>) :
                         ) {
                             Toast.makeText(ctx, "Data Berhasil Diupdate", Toast.LENGTH_SHORT).show()
                         }
-
                         override fun onFailure(call: Call<BurgerModel>, t: Throwable) {
                             TODO("Not yet implemented")
                         }
 
                     })
-
                     alertDialogEdit.dismiss()
                     alertDialog.dismiss()
                 }
@@ -122,11 +114,39 @@ class AdapterBurger(private val datalist: ArrayList<BurgerModel>) :
                 }
             }
 
+            btnHapus.setOnClickListener {
+                val layout_confirmation = LayoutInflater.from(ctx).inflate(R.layout.layout_confirmation, null)
+                val mBuilder = AlertDialog.Builder(ctx).setView(layout_confirmation)
+                val confirmDialog = mBuilder.show()
+
+                val APIClient =
+                    APIClient.create()
+                val tvID = (tvID.text as String?)?.toInt()
+
+                val deleteBurger = APIClient.deleteBurger(ID = tvID)
+
+                deleteBurger.enqueue(object : Callback<Unit> {
+                    override fun onResponse(
+                        call: Call<Unit>,
+                        response: Response<Unit>
+                    ) {
+                        Toast.makeText(ctx, "Data Berhasil Dihapus", Toast.LENGTH_SHORT).show()
+                    }
+
+                    override fun onFailure(call: Call<Unit>, t: Throwable) {
+                        TODO("Not yet implemented")
+                    }
+
+                })
+                confirmDialog.dismiss()
+                alertDialog.dismiss()
+            }
+
             btnCancel.setOnClickListener {
                 alertDialog.dismiss()
             }
 
-            Toast.makeText(ctx, "helloasdsadad ${item.ID}", Toast.LENGTH_SHORT)
+            Toast.makeText(ctx, "${item.Nama_Burger} ${item.ID}", Toast.LENGTH_SHORT)
                 .show() // Menampilkan ID dari view yang dipilih
         }
         holder.tvID.text = item.ID

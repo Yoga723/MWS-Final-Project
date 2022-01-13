@@ -4,7 +4,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object APIClient {
-    const val BASE_URL = "http://192.168.100.4/MWSFinal/public/"
+    const val BASE_URL = "http://192.168.100.6/MWSFinal/public/"
 
     fun create(): APIInterface { /* membuat interface/koneksi/command ke APIInterface */
 

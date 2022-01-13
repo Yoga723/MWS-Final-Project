@@ -38,7 +38,7 @@ interface APIInterface {
 
     @DELETE("listburger/{ID}")
     fun deleteBurger(
-        @Path("ID") ID: Int
+        @Path("ID") ID: Int?
     ): Call<Unit>
 
 

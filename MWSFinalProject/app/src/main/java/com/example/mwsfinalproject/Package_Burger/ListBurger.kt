@@ -1,12 +1,16 @@
 package com.example.mwsfinalproject.Package_Burger
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.TextView
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.example.mwsfinalproject.ActivityAdd
 import com.example.mwsfinalproject.R
 import com.example.restapiui.API.APIClient
 import retrofit2.Call
@@ -18,8 +22,41 @@ class ListBurger : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_burger)
 
+        refreshLayout()
         getBurgerData()
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_add, menu)
+
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        return when (item.itemId) {
+            R.id.add_item -> {
+                val intent = Intent(this, ActivityAdd::class.java)
+                startActivity(intent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun refreshLayout() {
+        val refresh_Layout: SwipeRefreshLayout = findViewById(R.id.refresh_Layout)
+
+
+        refresh_Layout.setOnRefreshListener {
+            Toast.makeText(this, "Data Refreshed", Toast.LENGTH_SHORT).show()
+            refresh_Layout.isRefreshing = false
+            finish()
+            overridePendingTransition(0, 0)
+            startActivity(intent)
+            overridePendingTransition(0, 0)
+        }
     }
 
     private fun getBurgerData() {
@@ -49,7 +86,7 @@ class ListBurger : AppCompatActivity() {
 
                 rvStudentData.adapter = adapterData
 
-                rvStudentData.setOnClickListener{
+                rvStudentData.setOnClickListener {
                     Toast.makeText(this@ListBurger, "hello dasda", Toast.LENGTH_SHORT).show()
                 }
             }

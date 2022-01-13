@@ -13,6 +13,12 @@
         android:theme="@style/Theme.MWSFinalProject"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ActivityAdd"
+            android:exported="false" />
+        <activity
+            android:name=".Package_Snack.listSnack"
+            android:exported="false" />
+        <activity
             android:name=".ActivityEdit"
             android:exported="false" />
         <activity
