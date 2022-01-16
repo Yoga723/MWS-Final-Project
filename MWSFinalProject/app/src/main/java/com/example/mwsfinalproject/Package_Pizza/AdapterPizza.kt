@@ -19,8 +19,6 @@ class AdapterPizza(private val datalist: ArrayList<PizzaModel>) :
     RecyclerView.Adapter<AdapterPizza.ViewHolderData>() {
     class ViewHolderData(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-//        var onItemClick:(())
-
         /* ItemView terhubung ke layout_list_pizza */
         val tvID = itemView.findViewById<TextView>(R.id.tvID)
         val tvNamaPizza = itemView.findViewById<TextView>(R.id.tvNamaPizza)

@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.example.mwsfinalproject.ActivityAdd
 import com.example.mwsfinalproject.R
 import com.example.restapiui.API.APIClient
 import retrofit2.Call
@@ -22,6 +21,7 @@ class ListBurger : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_burger)
 
+        getSupportActionBar()?.setTitle("List Burger")
         refreshLayout()
         getBurgerData()
 
@@ -37,7 +37,7 @@ class ListBurger : AppCompatActivity() {
 
         return when (item.itemId) {
             R.id.add_item -> {
-                val intent = Intent(this, ActivityAdd::class.java)
+                val intent = Intent(this, ActivityAddBurger::class.java)
                 startActivity(intent)
                 true
             }
@@ -89,6 +89,8 @@ class ListBurger : AppCompatActivity() {
                 rvStudentData.setOnClickListener {
                     Toast.makeText(this@ListBurger, "hello dasda", Toast.LENGTH_SHORT).show()
                 }
+
+                Log.d("data", adapterData.datalist.toString())
             }
 
             override fun onFailure(call: Call<ArrayList<BurgerModel>>, t: Throwable) {

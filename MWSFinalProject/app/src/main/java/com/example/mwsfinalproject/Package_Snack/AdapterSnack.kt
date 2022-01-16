@@ -1,4 +1,4 @@
-package com.example.mwsfinalproject.Package_Burger
+package com.example.mwsfinalproject.Package_Snack
 
 import android.app.AlertDialog
 import android.view.LayoutInflater
@@ -11,42 +11,41 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mwsfinalproject.R
 import com.example.restapiui.API.APIClient
+import com.example.restapiui.SnackModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AdapterBurger(val datalist: ArrayList<BurgerModel>) :
-    RecyclerView.Adapter<AdapterBurger.ViewHolderData>() {
+class AdapterSnack(private val datalist: ArrayList<SnackModel>) :
+    RecyclerView.Adapter<AdapterSnack.ViewHolderData>() {
     class ViewHolderData(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 
-        /* ItemView terhubung ke layout_list_burger */
+        /* ItemView terhubung ke layout_list_snack */
         val tvID = itemView.findViewById<TextView>(R.id.tvID)
-        val tvNamaBurger = itemView.findViewById<TextView>(R.id.tvNamaBurger)
-        val tvHargaBurger = itemView.findViewById<TextView>(R.id.tvHargaBurger)
-        val tvDeskripsiBurger = itemView.findViewById<TextView>(R.id.tvDeskripsiBurger)
+        val tvNamaSnack = itemView.findViewById<TextView>(R.id.tvNamaSnack)
+        val tvHargaSnack = itemView.findViewById<TextView>(R.id.tvHargaSnack)
+        val tvDeskripsiSnack = itemView.findViewById<TextView>(R.id.tvDeskripsiSnack)
 
         val context = itemView.context
     }
-
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolderData {
-        /* Mengambil konten dari layout layout_list_burger */
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.layout_list_burger, parent, false)
+            .inflate(R.layout.layout_list_snack, parent, false)
 
         return ViewHolderData(itemView)
     }
 
+
     override fun onBindViewHolder(holder: ViewHolderData, position: Int) {
-        /* Mengikat text dari textView ke data didalam dataList/BurgerModel berdasarkan ID/posisi */
         val item = datalist[position]
         val ctx = holder.itemView.context
-        val burgerTerpilih = holder.itemView
+        val snackTerpilih = holder.itemView
 
-        burgerTerpilih.setOnClickListener { //Action Saat Recycler view/view terpilih(saat salah satu object terpilih)
+        snackTerpilih.setOnClickListener { //Action Saat Recycler view/view terpilih(saat salah satu object terpilih)
             // variabel untuk layout Option
             val dialogView = LayoutInflater.from(ctx).inflate(R.layout.layout_option, null)
             val mBuilder = AlertDialog.Builder(ctx).setView(dialogView)
@@ -82,26 +81,26 @@ class AdapterBurger(val datalist: ArrayList<BurgerModel>) :
                     val edHarga = edHarga
                     val edDeskripsi = edDeskripsi
 
+
                     if (edProduk.text.isNotEmpty() && edHarga.text.isNotEmpty()) {
-                        val updateBurger = APIClient.updateBurger(
+                        val updateSnack = APIClient.updateSnack(
                             ID = (tvID.text as String?)?.toInt(),
-                            Nama_Burger = edProduk.text.toString(),
+                            Nama_Snack = edProduk.text.toString(),
                             Harga = edHarga.text.toString(),
                             Deskripsi = edDeskripsi.text.toString(),
                         )
-                        updateBurger.enqueue(object : Callback<BurgerModel> {
+                        updateSnack.enqueue(object : Callback<SnackModel> {
                             override fun onResponse(
-                                call: Call<BurgerModel>,
-                                response: Response<BurgerModel>
+                                call: Call<SnackModel>,
+                                response: Response<SnackModel>
                             ) {
                                 Toast.makeText(ctx, "Data Berhasil Diupdate", Toast.LENGTH_SHORT)
                                     .show()
                             }
 
-                            override fun onFailure(call: Call<BurgerModel>, t: Throwable) {
+                            override fun onFailure(call: Call<SnackModel>, t: Throwable) {
                                 TODO("Not yet implemented")
                             }
-
                         })
                         alertDialogEdit.dismiss()
                         alertDialog.dismiss()
@@ -109,9 +108,7 @@ class AdapterBurger(val datalist: ArrayList<BurgerModel>) :
                         edProduk.error = "Field Tidak Boleh Kosong"
                         edHarga.error = "Field Tidak Boleh Kosong"
                     }
-
                 }
-
 
                 btnCancelEdit.setOnClickListener {
                     alertDialogEdit.dismiss()
@@ -129,9 +126,9 @@ class AdapterBurger(val datalist: ArrayList<BurgerModel>) :
                     APIClient.create()
                 val tvID = (tvID.text as String?)?.toInt()
 
-                val deleteBurger = APIClient.deleteBurger(ID = tvID)
+                val deleteSnack = APIClient.deleteSnack(ID = tvID)
 
-                deleteBurger.enqueue(object : Callback<Unit> {
+                deleteSnack.enqueue(object : Callback<Unit> {
                     override fun onResponse(
                         call: Call<Unit>,
                         response: Response<Unit>
@@ -152,14 +149,13 @@ class AdapterBurger(val datalist: ArrayList<BurgerModel>) :
                 alertDialog.dismiss()
             }
 
-            Toast.makeText(ctx, "${item.Nama_Burger} ${item.ID}", Toast.LENGTH_SHORT)
+            Toast.makeText(ctx, "${item.Nama_Snack} ${item.ID}", Toast.LENGTH_SHORT)
                 .show() // Menampilkan ID dari view yang dipilih
         }
         holder.tvID.text = item.ID
-        holder.tvNamaBurger.text = item.Nama_Burger
-        holder.tvHargaBurger.text = item.Harga
-        holder.tvDeskripsiBurger.text = item.Deskripsi
-
+        holder.tvNamaSnack.text = item.Nama_Snack
+        holder.tvHargaSnack.text = item.Harga
+        holder.tvDeskripsiSnack.text = item.Deskripsi
     }
 
     override fun getItemCount(): Int = datalist.size

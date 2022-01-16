@@ -12,18 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Edit Data"
+        android:text="Tambah Data"
         android:textColor="@color/black"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ID"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -71,7 +63,8 @@
         android:hint="Masukkan Harga produk"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvHarga" />
+        app:layout_constraintTop_toBottomOf="@id/tvHarga"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/tvDeskripsi"
@@ -113,8 +106,8 @@
         android:id="@+id/btnSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/green_light"
         android:layout_marginTop="15dp"
+        android:backgroundTint="@color/green_light"
         android:layout_marginEnd="15dp"
         android:text="Submit"
         android:textAllCaps="true"

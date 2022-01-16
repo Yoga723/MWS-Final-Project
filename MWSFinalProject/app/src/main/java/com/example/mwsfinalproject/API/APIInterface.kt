@@ -2,6 +2,7 @@ package com.example.restapiui.API
 
 import com.example.mwsfinalproject.Package_Burger.BurgerModel
 import com.example.mwsfinalproject.Package_Pizza.PizzaModel
+import com.example.restapiui.SnackModel
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -75,4 +76,33 @@ interface APIInterface {
 
 
     /* Fungsi untuk tabel Snack */
+    @GET("listsnack")
+    fun getSnacks(): Call<ArrayList<SnackModel>>
+
+    @GET("listsnack/{ID}")
+    fun getSnack(
+        @Path("ID") ID: Int
+    ): Call<ArrayList<SnackModel>>
+
+    @FormUrlEncoded
+    @POST("listsnack")
+    fun createSnacks(
+        @Field("Nama_Snack") Nama_Snack: String,
+        @Field("Harga") Harga: String,
+        @Field("Deskripsi") Deskripsi: String,
+    ): Call<SnackModel>
+
+    @FormUrlEncoded
+    @PUT("listsnack/{ID}")
+    fun updateSnack(
+        @Path("ID") ID: Int?,
+        @Field("Nama_Snack") Nama_Snack: String,
+        @Field("Harga") Harga: String,
+        @Field("Deskripsi") Deskripsi: String,
+    ): Call<SnackModel>
+
+    @DELETE("listsnack/{ID}")
+    fun deleteSnack(
+        @Path("ID") ID: Int?
+    ): Call<Unit>
 }

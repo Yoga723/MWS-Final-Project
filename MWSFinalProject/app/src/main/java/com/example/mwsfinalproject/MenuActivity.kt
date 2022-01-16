@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.mwsfinalproject.Package_Burger.ListBurger
 import com.example.mwsfinalproject.Package_Pizza.ListPizza
+import com.example.mwsfinalproject.Package_Snack.listSnack
 
 class MenuActivity : AppCompatActivity() {
     lateinit var menu1: ConstraintLayout
@@ -31,6 +32,9 @@ class MenuActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        menu3.setOnClickListener{}
+        menu3.setOnClickListener{
+            val intent = Intent(this, listSnack::class.java)
+            startActivity(intent)
+        }
     }
 }

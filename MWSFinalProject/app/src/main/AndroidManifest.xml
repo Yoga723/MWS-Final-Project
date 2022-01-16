@@ -13,7 +13,13 @@
         android:theme="@style/Theme.MWSFinalProject"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ActivityAdd"
+            android:name=".Package_Snack.AddSnack"
+            android:exported="false" />
+        <activity
+            android:name=".Package_Pizza.AddPizza"
+            android:exported="false" />
+        <activity
+            android:name=".Package_Burger.ActivityAddBurger"
             android:exported="false" />
         <activity
             android:name=".Package_Snack.listSnack"
