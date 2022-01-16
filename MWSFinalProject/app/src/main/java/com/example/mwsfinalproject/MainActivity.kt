@@ -3,20 +3,20 @@ package com.example.mwsfinalproject
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
-    lateinit var btnIntent: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btnIntent = findViewById(R.id.btnIntent)
+        supportActionBar ?.hide()
 
-
-        btnIntent.setOnClickListener {
+        Handler().postDelayed({
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
-        }
+            finish()
+        }, 3000)
     }
 }
