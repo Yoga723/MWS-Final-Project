@@ -1,6 +1,6 @@
-package com.example.mwsfinalproject.Package_Snack
+package com.example.restapiui
 
-class SnackModel(
+data class SnackModel(
 
     val ID: String?,
     val Nama_Snack: String?,

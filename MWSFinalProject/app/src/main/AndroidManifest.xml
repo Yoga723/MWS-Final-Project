@@ -22,7 +22,7 @@
             android:name=".ActivityEdit"
             android:exported="false" />
         <activity
-            android:name=".Package_Pizza.listPizza"
+            android:name=".Package_Pizza.ListPizza"
             android:exported="false" />
         <activity
             android:name=".Package_Burger.ListBurger"

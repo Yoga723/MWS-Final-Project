@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.mwsfinalproject.Package_Burger.ListBurger
+import com.example.mwsfinalproject.Package_Pizza.ListPizza
 
 class MenuActivity : AppCompatActivity() {
     lateinit var menu1: ConstraintLayout
@@ -25,7 +26,10 @@ class MenuActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        menu2.setOnClickListener{}
+        menu2.setOnClickListener{
+            val intent = Intent(this, ListPizza::class.java)
+            startActivity(intent)
+        }
 
         menu3.setOnClickListener{}
     }

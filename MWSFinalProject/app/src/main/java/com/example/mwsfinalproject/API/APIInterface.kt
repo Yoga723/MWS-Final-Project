@@ -70,7 +70,7 @@ interface APIInterface {
 
     @DELETE("listpizza/{ID}")
     fun deletePizza(
-        @Path("ID") ID: Int
+        @Path("ID") ID: Int?
     ): Call<Unit>
 
 

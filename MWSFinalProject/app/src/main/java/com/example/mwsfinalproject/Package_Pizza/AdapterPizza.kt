@@ -1,4 +1,4 @@
-package com.example.mwsfinalproject.Package_Burger
+package com.example.mwsfinalproject.Package_Pizza
 
 import android.app.AlertDialog
 import android.view.LayoutInflater
@@ -15,17 +15,17 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AdapterBurger(private val datalist: ArrayList<BurgerModel>) :
-    RecyclerView.Adapter<AdapterBurger.ViewHolderData>() {
+class AdapterPizza(private val datalist: ArrayList<PizzaModel>) :
+    RecyclerView.Adapter<AdapterPizza.ViewHolderData>() {
     class ViewHolderData(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 //        var onItemClick:(())
 
-        /* ItemView terhubung ke layout_list_burger */
+        /* ItemView terhubung ke layout_list_pizza */
         val tvID = itemView.findViewById<TextView>(R.id.tvID)
-        val tvNamaBurger = itemView.findViewById<TextView>(R.id.tvNamaBurger)
-        val tvHargaBurger = itemView.findViewById<TextView>(R.id.tvHargaBurger)
-        val tvDeskripsiBurger = itemView.findViewById<TextView>(R.id.tvDeskripsiBurger)
+        val tvNamaPizza = itemView.findViewById<TextView>(R.id.tvNamaPizza)
+        val tvHargaPizza = itemView.findViewById<TextView>(R.id.tvHargaPizza)
+        val tvDeskripsiPizza = itemView.findViewById<TextView>(R.id.tvDeskripsiPizza)
 
         //        val ivEdit = itemView.findViewById<ImageView>(R.id.ivEdit)
 //        val ivDelete = itemView.findViewById<ImageView>(R.id.ivDelete)
@@ -36,20 +36,20 @@ class AdapterBurger(private val datalist: ArrayList<BurgerModel>) :
         parent: ViewGroup,
         viewType: Int
     ): ViewHolderData {
-        /* Mengambil konten dari layout layout_list_burger */
+        /* Mengambil konten dari layout layout_list_pizza */
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.layout_list_burger, parent, false)
+            .inflate(R.layout.layout_list_pizza, parent, false)
 
         return ViewHolderData(itemView)
     }
 
     override fun onBindViewHolder(holder: ViewHolderData, position: Int) {
-        /* Mengikat text dari textView ke data didalam dataList/BurgerModel berdasarkan ID/posisi */
+        /* Mengikat text dari textView ke data didalam dataList/PizzaModel berdasarkan ID/posisi */
         val item = datalist[position]
         val ctx = holder.itemView.context
-        val burgerTerpilih = holder.itemView
+        val pizzaTerpilih = holder.itemView
 
-        burgerTerpilih.setOnClickListener { //Action Saat Recycler view/view terpilih(saat salah satu object terpilih)
+        pizzaTerpilih.setOnClickListener { //Action Saat Recycler view/view terpilih(saat salah satu object terpilih)
             // variabel untuk layout Option
             val dialogView = LayoutInflater.from(ctx).inflate(R.layout.layout_option, null)
             val mBuilder = AlertDialog.Builder(ctx).setView(dialogView)
@@ -85,26 +85,26 @@ class AdapterBurger(private val datalist: ArrayList<BurgerModel>) :
                     val edHarga = edHarga
                     val edDeskripsi = edDeskripsi
 
+
                     if (edProduk.text.isNotEmpty() && edHarga.text.isNotEmpty()) {
-                        val updateBurger = APIClient.updateBurger(
+                        val updatePizza = APIClient.updatePizza(
                             ID = (tvID.text as String?)?.toInt(),
-                            Nama_Burger = edProduk.text.toString(),
+                            Nama_Pizza = edProduk.text.toString(),
                             Harga = edHarga.text.toString(),
                             Deskripsi = edDeskripsi.text.toString(),
                         )
-                        updateBurger.enqueue(object : Callback<BurgerModel> {
+                        updatePizza.enqueue(object : Callback<PizzaModel> {
                             override fun onResponse(
-                                call: Call<BurgerModel>,
-                                response: Response<BurgerModel>
+                                call: Call<PizzaModel>,
+                                response: Response<PizzaModel>
                             ) {
                                 Toast.makeText(ctx, "Data Berhasil Diupdate", Toast.LENGTH_SHORT)
                                     .show()
                             }
 
-                            override fun onFailure(call: Call<BurgerModel>, t: Throwable) {
+                            override fun onFailure(call: Call<PizzaModel>, t: Throwable) {
                                 TODO("Not yet implemented")
                             }
-
                         })
                         alertDialogEdit.dismiss()
                         alertDialog.dismiss()
@@ -112,9 +112,7 @@ class AdapterBurger(private val datalist: ArrayList<BurgerModel>) :
                         edProduk.error = "Field Tidak Boleh Kosong"
                         edHarga.error = "Field Tidak Boleh Kosong"
                     }
-
                 }
-
 
                 btnCancelEdit.setOnClickListener {
                     alertDialogEdit.dismiss()
@@ -132,9 +130,9 @@ class AdapterBurger(private val datalist: ArrayList<BurgerModel>) :
                     APIClient.create()
                 val tvID = (tvID.text as String?)?.toInt()
 
-                val deleteBurger = APIClient.deleteBurger(ID = tvID)
+                val deletePizza = APIClient.deletePizza(ID = tvID)
 
-                deleteBurger.enqueue(object : Callback<Unit> {
+                deletePizza.enqueue(object : Callback<Unit> {
                     override fun onResponse(
                         call: Call<Unit>,
                         response: Response<Unit>
@@ -155,13 +153,13 @@ class AdapterBurger(private val datalist: ArrayList<BurgerModel>) :
                 alertDialog.dismiss()
             }
 
-            Toast.makeText(ctx, "${item.Nama_Burger} ${item.ID}", Toast.LENGTH_SHORT)
+            Toast.makeText(ctx, "${item.Nama_Pizza} ${item.ID}", Toast.LENGTH_SHORT)
                 .show() // Menampilkan ID dari view yang dipilih
         }
         holder.tvID.text = item.ID
-        holder.tvNamaBurger.text = item.Nama_Burger
-        holder.tvHargaBurger.text = item.Harga
-        holder.tvDeskripsiBurger.text = item.Deskripsi
+        holder.tvNamaPizza.text = item.Nama_Pizza
+        holder.tvHargaPizza.text = item.Harga
+        holder.tvDeskripsiPizza.text = item.Deskripsi
 
     }
 
